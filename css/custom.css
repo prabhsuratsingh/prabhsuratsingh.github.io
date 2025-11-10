@@ -1,0 +1,25 @@
+.about-page {
+  max-width: 900px;
+  margin: auto;
+}
+
+.about-img {
+  float: right;
+  width: 300px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.projects-list {
+  list-style: none;
+  padding: 0;
+}
+
+.project {
+  margin-bottom: 32px;
+}
