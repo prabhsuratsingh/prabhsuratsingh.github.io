@@ -1,0 +1,113 @@
+---
+import Layout from "../../layouts/Layout.astro"
+
+export interface Project {
+  id: number
+  name: string
+  description: string
+  link: string
+  tags: string[]
+}
+
+export const projects: Project[] = [
+  {
+    id: 1,
+    name: "Minimal Todo App",
+    description:
+      "A clean, distraction-free task management application built with React and TypeScript. Features include real-time updates, local persistence, and a focus on simplicity.",
+    link: "https://github.com",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Next.js"],
+  },
+  {
+    id: 2,
+    name: "Design System Kit",
+    description:
+      "An open-source design system with carefully crafted components and clear documentation. Includes color palettes, typography scales, and interactive component examples.",
+    link: "https://github.com",
+    tags: ["Figma", "Design", "Components", "Documentation"],
+  },
+  {
+    id: 3,
+    name: "Portfolio Site",
+    description:
+      "A minimal portfolio website showcasing design and development work. Built with Next.js and optimized for performance with a focus on elegant interactions.",
+    link: "https://github.com",
+    tags: ["Next.js", "React", "Design", "Web"],
+  },
+  {
+    id: 4,
+    name: "Terminal Dashboard",
+    description:
+      "A command-line tool for monitoring project metrics and statistics. Built with Node.js, it provides real-time insights in a minimal, text-based interface.",
+    link: "https://github.com",
+    tags: ["Node.js", "CLI", "TypeScript", "Terminal"],
+  },
+  {
+    id: 5,
+    name: "Animation Library",
+    description:
+      "A lightweight library for creating smooth, performant web animations. Includes pre-built patterns and utilities for common animation scenarios.",
+    link: "https://github.com",
+    tags: ["JavaScript", "Animation", "Web", "Open Source"],
+  },
+  {
+    id: 6,
+    name: "Content Management System",
+    description:
+      "A headless CMS built for simplicity and flexibility. Features include markdown support, version control, and a clean API for content delivery.",
+    link: "https://github.com",
+    tags: ["Node.js", "CMS", "API", "Database"],
+  },
+]
+---
+<Layout>
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <div class="mb-12">
+    <h1 class="text-3xl font-serif font-bold mb-2">
+      Projects
+    </h1>
+    <p class="text-sm opacity-60">
+      Selected work and experiments
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {projects.map((project) => (
+      <div
+        class="border border-border p-8 hover:bg-muted-foreground/10 transition-colors group"
+      >
+        <h2 class="text-xl font-serif font-bold mb-3 group-hover:underline">
+          {project.name}
+        </h2>
+
+        <p class="text-sm opacity-70 mb-6 leading-relaxed">
+          {project.description}
+        </p>
+
+        <div class="mb-6">
+          <p class="text-xs opacity-50 mb-2 uppercase tracking-wider">
+            Technologies
+          </p>
+
+          <div class="flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span class="text-xs px-3 py-1 border border-border opacity-60">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity underline"
+        >
+          View Project →
+        </a>
+      </div>
+    ))}
+  </div>
+</div>
+</Layout>

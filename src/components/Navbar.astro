@@ -1,0 +1,61 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+	{ href: "/", label: "[Home]" },
+	{ href: "/blog", label: "[Blog]" },
+	{ href: "/projects", label: "[Projects]" },
+];
+---
+
+<nav class="border-b border-border bg-background sticky top-0 z-40">
+	<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="h-16 flex items-center justify-between">
+			<div class="flex items-center gap-8 justify-between w-full">
+				<div class="flex gap-6">
+					{
+						navLinks.map((link) => (
+							<a
+								href={link.href}
+								class={`hover:underline transition-all ${
+									currentPath === link.href ? "underline font-bold" : ""
+								}`}
+							>
+								{link.label}
+							</a>
+						))
+					}
+				</div>
+
+				<div class="flex items-center gap-4">
+					<a
+						href="https://github.com"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="hover:underline"
+						aria-label="GitHub"
+					>
+						[GitHub]
+					</a>
+
+					<button
+						id="theme-toggle"
+						class="hover:underline cursor-pointer"
+						aria-label="Toggle theme"
+					>
+						[◐]
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<script>
+	const themeToggle = document.getElementById("theme-toggle");
+
+	themeToggle?.addEventListener("click", () => {
+		const isDark = document.documentElement.classList.toggle("dark");
+		localStorage.setItem("theme", isDark ? "dark" : "light");
+	});
+</script>

@@ -1,11 +1,202 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const allBlogPosts = await getCollection('blog');
+const latestBlogs = allBlogPosts
+  .sort((a: any, b: any) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+
+export interface Project {
+  id: number
+  name: string
+  description: string
+  link: string
+  tags: string[]
+}
+
+export const projects: Project[] = [
+  {
+    id: 1,
+    name: "Minimal Todo App",
+    description:
+      "A clean, distraction-free task management application built with React and TypeScript. Features include real-time updates, local persistence, and a focus on simplicity.",
+    link: "https://github.com",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Next.js"],
+  },
+  {
+    id: 2,
+    name: "Design System Kit",
+    description:
+      "An open-source design system with carefully crafted components and clear documentation. Includes color palettes, typography scales, and interactive component examples.",
+    link: "https://github.com",
+    tags: ["Figma", "Design", "Components", "Documentation"],
+  },
+  {
+    id: 3,
+    name: "Portfolio Site",
+    description:
+      "A minimal portfolio website showcasing design and development work. Built with Next.js and optimized for performance with a focus on elegant interactions.",
+    link: "https://github.com",
+    tags: ["Next.js", "React", "Design", "Web"],
+  },
+  {
+    id: 4,
+    name: "Terminal Dashboard",
+    description:
+      "A command-line tool for monitoring project metrics and statistics. Built with Node.js, it provides real-time insights in a minimal, text-based interface.",
+    link: "https://github.com",
+    tags: ["Node.js", "CLI", "TypeScript", "Terminal"],
+  },
+  {
+    id: 5,
+    name: "Animation Library",
+    description:
+      "A lightweight library for creating smooth, performant web animations. Includes pre-built patterns and utilities for common animation scenarios.",
+    link: "https://github.com",
+    tags: ["JavaScript", "Animation", "Web", "Open Source"],
+  },
+  {
+    id: 6,
+    name: "Content Management System",
+    description:
+      "A headless CMS built for simplicity and flexibility. Features include markdown support, version control, and a clean API for content delivery.",
+    link: "https://github.com",
+    tags: ["Node.js", "CMS", "API", "Database"],
+  },
+]
+
 ---
 
 <Layout>
-	<Welcome />
+	<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+		<section class="mb-16">
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+				<div class="md:col-span-2">
+					<h1 class="text-3xl md:text-4xl font-serif font-bold mb-4">
+						John Doe
+					</h1>
+
+					<p class="text-sm opacity-70 mb-6 leading-relaxed">
+						I'm a full-stack developer and designer passionate about building
+						minimal, functional digital experiences. I focus on clean code,
+						user-centered design, and solving real problems with elegant
+						solutions.
+					</p>
+
+					<div class="flex gap-4">
+						<a
+							href="/blog"
+							class="text-sm border border-foreground px-4 py-2 hover:bg-foreground hover:text-background transition-colors"
+						>
+							Read Blog
+						</a>
+
+						<a
+							href="mailto:hello@example.com"
+							class="text-sm border border-foreground px-4 py-2 hover:bg-foreground hover:text-background transition-colors"
+						>
+							Get in Touch
+						</a>
+					</div>
+				</div>
+
+				<div class="md:col-span-1">
+					<div
+						class="w-32 h-32 bg-muted-foreground/20 rounded-lg border border-border flex items-center justify-center"
+					>
+						<span class="text-xs opacity-50 text-center px-4">
+							Profile Photo
+						</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="mb-16">
+			<div class="mb-8">
+				<h2 class="text-2xl font-serif font-bold mb-2">Latest Articles</h2>
+				<p class="text-sm opacity-60">
+					Thoughts on design, development, and the web
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				{
+					latestBlogs.map((blog: any) => (
+						<a
+							href={`/blog/${blog.slug}`}
+							class="group border border-border p-6 hover:bg-muted-foreground/10 transition-colors"
+						>
+							<time class="text-xs opacity-50 mb-2 uppercase tracking-wider">
+                {blog.data.date.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+							<h3 class="font-serif font-bold mb-3 group-hover:underline">
+								{blog.data.title}
+							</h3>
+							<p class="text-sm opacity-70 line-clamp-2">{blog.data.description}</p>
+						</a>
+					))
+				}
+			</div>
+
+			<div class="mt-6">
+				<a
+					href="/blog"
+					class="text-sm opacity-60 hover:opacity-100 transition-opacity underline"
+				>
+					View all articles →
+				</a>
+			</div>
+		</section>
+
+		<!-- Featured Projects -->
+		<section>
+			<div class="mb-8">
+				<h2 class="text-2xl font-serif font-bold mb-2">Featured Projects</h2>
+				<p class="text-sm opacity-60">A selection of my recent work</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+				{
+					projects.slice(0, 2).map((project) => (
+						<div class="border border-border p-6 hover:bg-muted-foreground/10 transition-colors">
+							<h3 class="font-serif font-bold mb-2">{project.name}</h3>
+							<p class="text-sm opacity-70 mb-4">{project.description}</p>
+
+							<div class="flex flex-wrap gap-2 mb-4">
+								{project.tags.map((tag) => (
+									<span class="text-xs px-2 py-1 border border-border opacity-60">
+										{tag}
+									</span>
+								))}
+							</div>
+
+							<a
+								href={project.link}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-sm opacity-60 hover:opacity-100 transition-opacity underline"
+							>
+								View Project →
+							</a>
+						</div>
+					))
+				}
+			</div>
+
+			<div class="mt-6">
+				<a
+					href="/projects"
+					class="text-sm opacity-60 hover:opacity-100 transition-opacity underline"
+				>
+					View all projects →
+				</a>
+			</div>
+		</section>
+	</div>
 </Layout>
