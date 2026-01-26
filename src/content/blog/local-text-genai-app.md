@@ -48,8 +48,8 @@ cd tinyllama-chat-app
 uv init
 ```
 
-Once this is done, you will quite a bit files created by uv. Nothing to be overwhelmed by, these are just files uv uses to setup your environment. For example 
-**pyproject.toml** is similar to **requirements.txt**, because it containes all the libraries along with the version needed to setup this project, along with other metadata.
+Once this is done, you will see quite a bit files created by uv. Nothing to be overwhelmed by, these are just files uv uses to setup your environment. For example 
+**pyproject.toml** is similar to **requirements.txt**, it contains all the libraries along with the version needed to setup this project, along with other metadata.
 
 Now lets create the environment we will work in by running uv sync
 ```bash
@@ -67,7 +67,7 @@ venv\Scripts\Activate.ps1
 # 3. Linus/WSL/macOS
 source venv/bin/activate
 ```
-This will create a python environment by the name **venv** and activate it. This is where all the libraries you install for this project will live. Why is this preferred? Mainly because this isolates your project from global dependencies, which may cause verison contflicts etc etc. In a nutshell, 
+This will create a python environment by the name **venv** and activate it. This is where all the libraries you install for this project will live. Why is this preferred? Mainly because this isolates your project from global dependencies, which may cause verison conflicts etc etc. In a nutshell, 
 
 > **env -> good** 
 
@@ -161,7 +161,7 @@ def generate_text(
     return output
 ```
 
-This completes our TinyLlama setup and text generation utility function. If you are overwhelmed by the parameters we used to get the prediction, don't worry, i was too. But these are just the params we adjust to get the quality, length, type of response we want from the model. More on these in a later blog!
+This completes our TinyLlama setup and text generation utility function. If you are overwhelmed by the parameters we used to get the prediction, don't worry, I was too. But these are just the params we adjust to get the quality, length, type of response we want from the model. More on these in a later blog!
 
 Now it's time to setup the FastAPI server, so let's dive right into it
 
@@ -240,5 +240,5 @@ streamlit client.py
 # this will automatically open up the client in a new tab in your browser
 ```
 
-And there you have it, you just successfully build an entirely local ChatBot using TinyLlama, FastAPI and Streamlit. But you are not limited to just text generation, there are plenty of tiny models for audio, image, video generation for you to use, so feel free to check them out on HuggingFace. 
+And there you have it, you just successfully built an entirely local ChatBot using TinyLlama, FastAPI and Streamlit. But you are not limited to just text generation, there are plenty of tiny models for audio, image, video generation for you to use, so feel free to check them out on HuggingFace. 
 

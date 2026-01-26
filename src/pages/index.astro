@@ -1,70 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from 'astro:content';
+import projects from '../data/projects.json';
 
 const allBlogPosts = await getCollection('blog');
 const latestBlogs = allBlogPosts
   .sort((a: any, b: any) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
-
-export interface Project {
-  id: number
-  name: string
-  description: string
-  link: string
-  tags: string[]
-}
-
-export const projects: Project[] = [
-  {
-    id: 1,
-    name: "Minimal Todo App",
-    description:
-      "A clean, distraction-free task management application built with React and TypeScript. Features include real-time updates, local persistence, and a focus on simplicity.",
-    link: "https://github.com",
-    tags: ["React", "TypeScript", "Tailwind CSS", "Next.js"],
-  },
-  {
-    id: 2,
-    name: "Design System Kit",
-    description:
-      "An open-source design system with carefully crafted components and clear documentation. Includes color palettes, typography scales, and interactive component examples.",
-    link: "https://github.com",
-    tags: ["Figma", "Design", "Components", "Documentation"],
-  },
-  {
-    id: 3,
-    name: "Portfolio Site",
-    description:
-      "A minimal portfolio website showcasing design and development work. Built with Next.js and optimized for performance with a focus on elegant interactions.",
-    link: "https://github.com",
-    tags: ["Next.js", "React", "Design", "Web"],
-  },
-  {
-    id: 4,
-    name: "Terminal Dashboard",
-    description:
-      "A command-line tool for monitoring project metrics and statistics. Built with Node.js, it provides real-time insights in a minimal, text-based interface.",
-    link: "https://github.com",
-    tags: ["Node.js", "CLI", "TypeScript", "Terminal"],
-  },
-  {
-    id: 5,
-    name: "Animation Library",
-    description:
-      "A lightweight library for creating smooth, performant web animations. Includes pre-built patterns and utilities for common animation scenarios.",
-    link: "https://github.com",
-    tags: ["JavaScript", "Animation", "Web", "Open Source"],
-  },
-  {
-    id: 6,
-    name: "Content Management System",
-    description:
-      "A headless CMS built for simplicity and flexibility. Features include markdown support, version control, and a clean API for content delivery.",
-    link: "https://github.com",
-    tags: ["Node.js", "CMS", "API", "Database"],
-  },
-]
 
 ---
 
@@ -74,14 +16,16 @@ export const projects: Project[] = [
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
 				<div class="md:col-span-2">
 					<h1 class="text-3xl md:text-4xl font-serif font-bold mb-4">
-						John Doe
+						Prabhsurat Singh
 					</h1>
 
 					<p class="text-sm opacity-70 mb-6 leading-relaxed">
-						I'm a full-stack developer and designer passionate about building
-						minimal, functional digital experiences. I focus on clean code,
-						user-centered design, and solving real problems with elegant
-						solutions.
+						Hey, I’m Prabhsurat Singh - a software engineer from New Delhi, India. I’m currently studying Computer Science with a minor in Artificial Intelligence and Machine Learning.
+						<br/>
+						<br/>
+						I’m always building things, backend systems, infrastructure, and AI models. My work is hands-on and research-driven, 
+						with a strong focus on <strong>Reinforcement Learning and Deep Learning.</strong> I spend a lot of time experimenting with algorithms, 
+						training pipelines, and model behavior, while taking a systems-first approach to machine learning, turning ambitious ideas into reliable, working systems.
 					</p>
 
 					<div class="flex gap-4">
@@ -93,7 +37,7 @@ export const projects: Project[] = [
 						</a>
 
 						<a
-							href="mailto:hello@example.com"
+							href="mailto:prabhsurat.tech@gmail.com"
 							class="text-sm border border-foreground px-4 py-2 hover:bg-foreground hover:text-background transition-colors"
 						>
 							Get in Touch
@@ -103,11 +47,13 @@ export const projects: Project[] = [
 
 				<div class="md:col-span-1">
 					<div
-						class="w-32 h-32 bg-muted-foreground/20 rounded-lg border border-border flex items-center justify-center"
+						class="w-42 h-52 mt-4 bg-muted-foreground/20 rounded-lg border border-border flex items-center justify-center"
 					>
-						<span class="text-xs opacity-50 text-center px-4">
-							Profile Photo
-						</span>
+						<img 
+							src="/images/about-pic.jpeg" 
+							alt="Profile Photo" 
+							class="w-42 h-52 rounded-lg border border-border object-cover"
+						/>
 					</div>
 				</div>
 			</div>
@@ -117,7 +63,7 @@ export const projects: Project[] = [
 			<div class="mb-8">
 				<h2 class="text-2xl font-serif font-bold mb-2">Latest Articles</h2>
 				<p class="text-sm opacity-60">
-					Thoughts on design, development, and the web
+					Thoughts on RL, systems, development and more
 				</p>
 			</div>
 
@@ -169,15 +115,15 @@ export const projects: Project[] = [
 							<p class="text-sm opacity-70 mb-4">{project.description}</p>
 
 							<div class="flex flex-wrap gap-2 mb-4">
-								{project.tags.map((tag) => (
+								{project.languages.nodes.map((language) => (
 									<span class="text-xs px-2 py-1 border border-border opacity-60">
-										{tag}
+										{language.name}
 									</span>
 								))}
 							</div>
 
 							<a
-								href={project.link}
+								href={project.url}
 								target="_blank"
 								rel="noopener noreferrer"
 								class="text-sm opacity-60 hover:opacity-100 transition-opacity underline"

@@ -1,64 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro"
+import projects from '../../data/projects.json';
 
-export interface Project {
-  id: number
-  name: string
-  description: string
-  link: string
-  tags: string[]
-}
-
-export const projects: Project[] = [
-  {
-    id: 1,
-    name: "Minimal Todo App",
-    description:
-      "A clean, distraction-free task management application built with React and TypeScript. Features include real-time updates, local persistence, and a focus on simplicity.",
-    link: "https://github.com",
-    tags: ["React", "TypeScript", "Tailwind CSS", "Next.js"],
-  },
-  {
-    id: 2,
-    name: "Design System Kit",
-    description:
-      "An open-source design system with carefully crafted components and clear documentation. Includes color palettes, typography scales, and interactive component examples.",
-    link: "https://github.com",
-    tags: ["Figma", "Design", "Components", "Documentation"],
-  },
-  {
-    id: 3,
-    name: "Portfolio Site",
-    description:
-      "A minimal portfolio website showcasing design and development work. Built with Next.js and optimized for performance with a focus on elegant interactions.",
-    link: "https://github.com",
-    tags: ["Next.js", "React", "Design", "Web"],
-  },
-  {
-    id: 4,
-    name: "Terminal Dashboard",
-    description:
-      "A command-line tool for monitoring project metrics and statistics. Built with Node.js, it provides real-time insights in a minimal, text-based interface.",
-    link: "https://github.com",
-    tags: ["Node.js", "CLI", "TypeScript", "Terminal"],
-  },
-  {
-    id: 5,
-    name: "Animation Library",
-    description:
-      "A lightweight library for creating smooth, performant web animations. Includes pre-built patterns and utilities for common animation scenarios.",
-    link: "https://github.com",
-    tags: ["JavaScript", "Animation", "Web", "Open Source"],
-  },
-  {
-    id: 6,
-    name: "Content Management System",
-    description:
-      "A headless CMS built for simplicity and flexibility. Features include markdown support, version control, and a clean API for content delivery.",
-    link: "https://github.com",
-    tags: ["Node.js", "CMS", "API", "Database"],
-  },
-]
 ---
 <Layout>
 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -90,16 +33,16 @@ export const projects: Project[] = [
           </p>
 
           <div class="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
+            {project.languages.nodes.map((language) => (
               <span class="text-xs px-3 py-1 border border-border opacity-60">
-                {tag}
+                {language.name}
               </span>
             ))}
           </div>
         </div>
 
         <a
-          href={project.link}
+          href={project.url}
           target="_blank"
           rel="noopener noreferrer"
           class="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity underline"
@@ -109,5 +52,13 @@ export const projects: Project[] = [
       </div>
     ))}
   </div>
+  <div class="mt-12 text-center">
+    <a
+      href="https://github.com/prabhsuratsingh?tab=repositories"
+      target="_blank"
+      class="text-sm opacity-60 hover:opacity-100 transition-opacity underline"
+    >
+      View all projects →
+    </a>
 </div>
 </Layout>
