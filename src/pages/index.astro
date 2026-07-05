@@ -1,13 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { getCollection } from 'astro:content';
-import projects from '../data/projects.json';
+import { getCollection } from "astro:content";
+import projects from "../data/projects.json";
 
-const allBlogPosts = await getCollection('blog');
+const allBlogPosts = await getCollection("blog");
 const latestBlogs = allBlogPosts
-  .sort((a: any, b: any) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 3);
-
+	.sort((a: any, b: any) => b.data.date.getTime() - a.data.date.getTime())
+	.slice(0, 3);
 ---
 
 <Layout>
@@ -20,12 +19,26 @@ const latestBlogs = allBlogPosts
 					</h1>
 
 					<p class="text-sm opacity-70 mb-6 leading-relaxed">
-						Hey, I’m Prabhsurat Singh - a software engineer from New Delhi, India. I’m currently studying Computer Science with a minor in Artificial Intelligence and Machine Learning.
-						<br/>
-						<br/>
-						I’m always building things, backend systems, infrastructure, and AI models. My work is hands-on and research-driven, 
-						with a strong focus on <strong>Reinforcement Learning and Deep Learning.</strong> I spend a lot of time experimenting with algorithms, 
-						training pipelines, and model behavior, while taking a systems-first approach to machine learning, turning ambitious ideas into reliable, working systems.
+						Hey, I’m <strong>Prabhsurat Singh</strong> — a software engineer
+						from New Delhi, India, with a Bachelor's degree in Computer Science
+						and a minor in Artificial Intelligence and Machine Learning.
+						<br />
+						<br />
+						I spend most of my time building machine learning systems,
+						backend infrastructure, and developer tools. My primary interests
+						are <strong
+							>Reinforcement Learning, LLM post-training, and Deep
+							Learning</strong
+						>, where I work on everything from RL algorithms and
+						training pipelines to <strong>GPU programming</strong> and model
+						optimization.
+						<br />
+						<br />
+						Alongside ML research, I enjoy building distributed backend
+						systems and high-performance infrastructure using Python,
+						C++, PyTorch, CUDA, FastAPI, Docker, Redis, Kafka, and PostgreSQL.
+						I'm driven by a systems-first mindset—taking ambitious ideas
+						from research to production-ready software.
 					</p>
 
 					<div class="flex gap-4">
@@ -49,9 +62,9 @@ const latestBlogs = allBlogPosts
 					<div
 						class="w-42 h-52 mt-4 bg-muted-foreground/20 rounded-lg border border-border flex items-center justify-center"
 					>
-						<img 
-							src="/images/about-pic.jpeg" 
-							alt="Profile Photo" 
+						<img
+							src="/images/about-pic.jpeg"
+							alt="Profile Photo"
 							class="w-42 h-52 rounded-lg border border-border object-cover"
 						/>
 					</div>
@@ -61,7 +74,9 @@ const latestBlogs = allBlogPosts
 
 		<section class="mb-16">
 			<div class="mb-8">
-				<h2 class="text-2xl font-serif font-bold mb-2">Latest Articles</h2>
+				<h2 class="text-2xl font-serif font-bold mb-2">
+					Latest Articles
+				</h2>
 				<p class="text-sm opacity-60">
 					Thoughts on RL, systems, development and more
 				</p>
@@ -75,16 +90,18 @@ const latestBlogs = allBlogPosts
 							class="group border border-border p-6 hover:bg-muted-foreground/10 transition-colors"
 						>
 							<time class="text-xs opacity-50 mb-2 uppercase tracking-wider">
-                {blog.data.date.toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </time>
+								{blog.data.date.toLocaleDateString("en-US", {
+									year: "numeric",
+									month: "long",
+									day: "numeric",
+								})}
+							</time>
 							<h3 class="font-serif font-bold mb-3 group-hover:underline">
 								{blog.data.title}
 							</h3>
-							<p class="text-sm opacity-70 line-clamp-2">{blog.data.description}</p>
+							<p class="text-sm opacity-70 line-clamp-2">
+								{blog.data.description}
+							</p>
 						</a>
 					))
 				}
@@ -103,7 +120,9 @@ const latestBlogs = allBlogPosts
 		<!-- Featured Projects -->
 		<section>
 			<div class="mb-8">
-				<h2 class="text-2xl font-serif font-bold mb-2">Featured Projects</h2>
+				<h2 class="text-2xl font-serif font-bold mb-2">
+					Featured Projects
+				</h2>
 				<p class="text-sm opacity-60">A selection of my recent work</p>
 			</div>
 
@@ -111,8 +130,12 @@ const latestBlogs = allBlogPosts
 				{
 					projects.slice(0, 2).map((project) => (
 						<div class="border border-border p-6 hover:bg-muted-foreground/10 transition-colors">
-							<h3 class="font-serif font-bold mb-2">{project.name}</h3>
-							<p class="text-sm opacity-70 mb-4">{project.description}</p>
+							<h3 class="font-serif font-bold mb-2">
+								{project.name}
+							</h3>
+							<p class="text-sm opacity-70 mb-4">
+								{project.description}
+							</p>
 
 							<div class="flex flex-wrap gap-2 mb-4">
 								{project.languages.nodes.map((language) => (
