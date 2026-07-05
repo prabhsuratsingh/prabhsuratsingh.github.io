@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import projects from "../data/projects.json";
+import scratch from "../data/from_scratch.json";
 
 const allBlogPosts = await getCollection("blog");
 const latestBlogs = allBlogPosts
@@ -20,8 +21,9 @@ const latestBlogs = allBlogPosts
 
 					<p class="text-sm opacity-70 mb-6 leading-relaxed">
 						I’m <strong>Prabhsurat Singh</strong> — a software engineer
-						from New Delhi, India, with a Bachelor's degree in Computer Science
-						and a minor in Artificial Intelligence and Machine Learning.
+						from New Delhi, India, with a Bachelor's degree in Computer
+						Science and a minor in Artificial Intelligence and Machine
+						Learning.
 						<br />
 						<br />
 						I spend most of my time building machine learning systems,
@@ -30,8 +32,8 @@ const latestBlogs = allBlogPosts
 							>Reinforcement Learning, LLM post-training, and Deep
 							Learning</strong
 						>, where I work on everything from RL algorithms and
-						training pipelines to <strong>GPU programming</strong> and model
-						optimization.
+						training pipelines to <strong>GPU programming</strong> and
+						model optimization.
 						<br />
 						<br />
 						Alongside ML research, I enjoy building distributed backend
@@ -86,41 +88,42 @@ const latestBlogs = allBlogPosts
 				{
 					latestBlogs.map((blog: any) => (
 						<a
-	href={`/blog/${blog.slug}`}
-	class="group border border-border hover:bg-muted-foreground/10 transition-colors overflow-hidden"
->
-	{
-		blog.data.cover && (
-			<img
-				src={blog.data.cover}
-				alt={blog.data.title}
-				class="w-full h-44 object-contain bg-white border-b border-border p-3"
-			/>
-		)
-	}
+							href={`/blog/${blog.slug}`}
+							class="group border border-border hover:bg-muted-foreground/10 transition-colors overflow-hidden"
+						>
+							{blog.data.cover && (
+								<img
+									src={blog.data.cover}
+									alt={blog.data.title}
+									class="w-full h-44 object-contain bg-white border-b border-border p-3"
+								/>
+							)}
 
-	<div class="p-6">
-		<time class="text-xs opacity-50 uppercase tracking-wider">
-			{blog.data.date.toLocaleDateString("en-US", {
-				year: "numeric",
-				month: "long",
-				day: "numeric",
-			})}
-		</time>
+							<div class="p-6">
+								<time class="text-xs opacity-50 uppercase tracking-wider">
+									{blog.data.date.toLocaleDateString(
+										"en-US",
+										{
+											year: "numeric",
+											month: "long",
+											day: "numeric",
+										},
+									)}
+								</time>
 
-		<h3 class="font-serif font-bold mt-2 mb-3 group-hover:underline">
-			{blog.data.title}
-		</h3>
+								<h3 class="font-serif font-bold mt-2 mb-3 group-hover:underline">
+									{blog.data.title}
+								</h3>
 
-		<p class="text-sm opacity-70 line-clamp-2">
-			{blog.data.description}
-		</p>
+								<p class="text-sm opacity-70 line-clamp-2">
+									{blog.data.description}
+								</p>
 
-		<p class="text-xs opacity-40 mt-4">
-			{blog.data.readTime} min read
-		</p>
-	</div>
-</a>
+								<p class="text-xs opacity-40 mt-4">
+									{blog.data.readTime} min read
+								</p>
+							</div>
+						</a>
 					))
 				}
 			</div>
@@ -131,6 +134,72 @@ const latestBlogs = allBlogPosts
 					class="text-sm opacity-60 hover:opacity-100 transition-opacity underline"
 				>
 					View all articles →
+				</a>
+			</div>
+		</section>
+
+		<!-- From Scratch -->
+		<section class="mb-16">
+			<div class="mb-8">
+				<h2 class="text-2xl font-serif font-bold mb-2">From Scratch</h2>
+				<p class="text-sm opacity-60">
+					Implementations of research papers, books, and algorithms to
+					understand them from first principles.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+				{
+					scratch.slice(0, 2).map((impl) => (
+						<a
+							href={impl.github}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="group border border-border hover:bg-muted-foreground/10 transition-colors overflow-hidden"
+						>
+							{impl.image && (
+								<img
+									src={impl.image}
+									alt={impl.name}
+									class="w-full h-44 object-contain bg-white border-b border-border p-3"
+								/>
+							)}
+
+							<div class="p-6">
+								<h3 class="font-serif font-bold mb-3 group-hover:underline">
+									{impl.name}
+								</h3>
+
+								<p class="text-sm opacity-70 line-clamp-2 mb-4">
+									{impl.description}
+								</p>
+
+								<div class="flex flex-wrap gap-2 mb-4">
+									{impl.languages.map((lang) => (
+										<span class="text-xs px-2 py-1 border border-border opacity-60">
+											{lang}
+										</span>
+									))}
+								</div>
+
+								<p class="text-xs opacity-50">
+									Based on{" "}
+									<span class="underline">
+										{impl.resource.name}
+									</span>
+								</p>
+							</div>
+						</a>
+					))
+				}
+			</div>
+
+			<div class="mt-6">
+				<a
+					href="/from_scratch"
+					class="text-sm opacity-60 hover:opacity-100 transition-opacity underline"
+				>
+					View all implementations →
 				</a>
 			</div>
 		</section>

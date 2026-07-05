@@ -1,0 +1,112 @@
+[
+  {
+    "name": "pmpp-cuda",
+    "description": "Implementation of experiments and code from Programming Massively Parallel Processors.",
+    "github": "https://github.com/prabhsuratsingh/pmpp-cuda",
+    "resource": {
+      "name": "Programming Massively Parallel Processors",
+      "url": "https://www.elsevier.com/books/programming-massively-parallel-processors/hwu/978-0-323-91231-0"
+    },
+    "image": "/images/from-scratch/blackwell.webp",
+    "languages": ["CUDA"]
+  },
+  {
+    "name": "smol-Llama",
+    "description": "Implementation of the Llama architecture from scratch in PyTorch.",
+    "github": "https://github.com/prabhsuratsingh/smol-Llama",
+    "resource": {
+      "name": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
+      "url": "https://arxiv.org/abs/2307.09288"
+    },
+    "image": "/images/from-scratch/llama.png",
+    "languages": ["Python"]
+  },
+  {
+    "name": "smolGPT-2",
+    "description": "Implemented GPT-2 and Byte Pair Encoding (BPE) from scratch using PyTorch.",
+    "github": "https://github.com/prabhsuratsingh/smolGPT-2",
+    "resource": {
+      "name": "Language Models are Unsupervised Multitask Learners",
+      "url": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf"
+    },
+    "image": "/images/from-scratch/gpt2.png",
+    "languages": ["Python"]
+  },
+  {
+    "name": "smolGPT",
+    "description": "Implementation of the original GPT architecture from scratch using PyTorch.",
+    "github": "https://github.com/prabhsuratsingh/smolGPT",
+    "resource": {
+      "name": "Improving Language Understanding by Generative Pre-Training",
+      "url": "https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf"
+    },
+    "image": "/images/from-scratch/gpt.png",
+    "languages": ["Python"]
+  },
+  {
+    "name": "transformer",
+    "description": "Implementation of the Transformer architecture from scratch.",
+    "github": "https://github.com/prabhsuratsingh/transformer",
+    "resource": {
+      "name": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762"
+    },
+    "image": "/images/from-scratch/transformer.png",
+    "languages": ["Python"]
+  },
+  {
+    "name": "Neural-Style-Transfer",
+    "description": "Neural Style Transfer using a pretrained VGG-19 implemented in PyTorch.",
+    "github": "https://github.com/prabhsuratsingh/Neural-Style-Transfer",
+    "resource": {
+      "name": "A Neural Algorithm of Artistic Style",
+      "url": "https://arxiv.org/abs/1508.06576"
+    },
+    "image": "/images/from-scratch/nst.png",
+    "languages": ["Python"]
+  },
+  {
+    "name": "micrograd",
+    "description": "Tiny scalar-valued autograd engine and neural network library built from scratch.",
+    "github": "https://github.com/prabhsuratsingh/micrograd",
+    "resource": {
+      "name": "micrograd by Andrej Karpathy",
+      "url": "https://github.com/karpathy/micrograd"
+    },
+    "image": "/images/from-scratch/micrograd.png",
+    "languages": ["Python"]
+  },
+  {
+    "name": "Recurrent-Neural-Networks",
+    "description": "Implementations of vanilla RNNs for sequence modeling.",
+    "github": "https://github.com/prabhsuratsingh/Recurrent-Neural-Networks",
+    "resource": {
+      "name": "Machine Learning with PyTorch and Scikit-Learn",
+      "url": "https://sebastianraschka.com/books/machine-learning-with-pytorch-and-scikit-learn/"
+    },
+    "image": "/images/from-scratch/rnn.png",
+    "languages": ["Jupyter Notebook"]
+  },
+  {
+    "name": "mnist-mlp",
+    "description": "Multi-layer perceptron trained on MNIST using PyTorch.",
+    "github": "https://github.com/prabhsuratsingh/mnist-mlp",
+    "resource": {
+      "name": "MNIST Dataset",
+      "url": "http://yann.lecun.com/exdb/mnist/"
+    },
+    "image": "/images/from-scratch/mlp.jpg",
+    "languages": ["Jupyter Notebook", "Python"]
+  },
+  {
+    "name": "iris-pytorch-nn",
+    "description": "Feedforward neural network trained on the Iris dataset using PyTorch.",
+    "github": "https://github.com/prabhsuratsingh/iris-pytorch-nn",
+    "resource": {
+      "name": "Iris Dataset",
+      "url": "https://archive.ics.uci.edu/dataset/53/iris"
+    },
+    "image": "",
+    "languages": ["Jupyter Notebook"]
+  }
+]
