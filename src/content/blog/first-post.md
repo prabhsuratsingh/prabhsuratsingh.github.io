@@ -3,7 +3,7 @@ title: "Hello World"
 description: "My first blog post"
 date: 2025-11-10
 readTime: 5
-cover: "favicon.svg"
+cover: "/favicon.svg"
 
 ---
 
