@@ -13,23 +13,27 @@
         }
     },
     {
-        "name": "NeuroFold",
-        "description": "AI-powered platform to predict potential drug candidates for target proteins, powered by PyTorch, FastAPI, and Gemini.",
-        "url": "https://github.com/prabhsuratsingh/NeuroFold",
-        "stargazerCount": 1,
+        "name": "rl-robotics-simulations",
+        "description": "Implement Deep RL methods on MuJoCo environments, via command line interface",
+        "url": "https://github.com/prabhsuratsingh/rl-robotics-simulations",
+        "stargazerCount": 0,
         "languages": {
             "nodes": [
                 {
-                    "name": "TypeScript"
-                },
+                    "name": "Python"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Atari-RL",
+        "description": "Implementation of Deep Q-Networks (DQN) for Atari 2600 environments using the Arcade Learning Environment (ALE) via Gymnasium.",
+        "url": "https://github.com/prabhsuratsingh/Atari-RL",
+        "stargazerCount": 0,
+        "languages": {
+            "nodes": [
                 {
                     "name": "Python"
-                },
-                {
-                    "name": "CSS"
-                },
-                {
-                    "name": "JavaScript"
                 }
             ]
         }
@@ -51,6 +55,19 @@
         }
     },
     {
+        "name": "smol-poet",
+        "description": "A very smol LLM for generating poems",
+        "url": "https://github.com/prabhsuratsingh/smol-poet",
+        "stargazerCount": 0,
+        "languages": {
+            "nodes": [
+                {
+                    "name": "Python"
+                }
+            ]
+        }
+    },
+    {
         "name": "SummitAI",
         "description": "AI that helps you “summit” your meetings with clarity.",
         "url": "https://github.com/prabhsuratsingh/SummitAI",
@@ -65,47 +82,6 @@
                 },
                 {
                     "name": "Dockerfile"
-                }
-            ]
-        }
-    },
-    {
-        "name": "RealTime-Analytics-Platform",
-        "description": "A production-style real-time analytics system built with Python, Kafka, Redis, TimescaleDB, ClickHouse, FastAPI, Prometheus, Grafana, and a React + TypeScript frontend.",
-        "url": "https://github.com/prabhsuratsingh/RealTime-Analytics-Platform",
-        "stargazerCount": 0,
-        "languages": {
-            "nodes": [
-                {
-                    "name": "TypeScript"
-                },
-                {
-                    "name": "Python"
-                },
-                {
-                    "name": "JavaScript"
-                },
-                {
-                    "name": "CSS"
-                }
-            ]
-        }
-    },
-    {
-        "name": "DistributedJobScheduler",
-        "description": "A backend system that accepts background jobs (one-off or scheduled), distributes them across workers, retries on failure, and ensures jobs are eventually executed",
-        "url": "https://github.com/prabhsuratsingh/DistributedJobScheduler",
-        "stargazerCount": 0,
-        "languages": {
-            "nodes": [
-                {
-                    "name": "Python"
-                },
-                {
-                    "name": "Dockerfile"
-                },
-                {
-                    "name": "Mako"
                 }
             ]
         }
