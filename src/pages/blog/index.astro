@@ -12,7 +12,9 @@ const sortedPosts = allBlogPosts.sort(
 	<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 		<div class="mb-12">
 			<h1 class="text-3xl font-serif font-bold mb-2">Articles</h1>
-			<p class="text-sm opacity-60">A collection of thoughts and insights</p>
+			<p class="text-sm opacity-60">
+				A collection of thoughts and insights
+			</p>
 		</div>
 
 		<div class="space-y-4">
@@ -20,23 +22,37 @@ const sortedPosts = allBlogPosts.sort(
 				sortedPosts.map((blog) => (
 					<a
 						href={`/blog/${blog.slug}`}
-						class="block border border-border p-6 group hover:bg-muted-foreground/10 transition-colors"
+						class="flex justify-between gap-6 border border-border p-6 group hover:bg-muted-foreground/10 transition-colors"
 					>
-						<p class="text-xs opacity-50 mb-2 uppercase tracking-wider">
-							{blog.data.date.toLocaleDateString("en-US", {
-								year: "numeric",
-								month: "long",
-								day: "numeric",
-							})}
-						</p>
+						<div class="flex-1 min-w-0">
+							<p class="text-xs opacity-50 mb-2 uppercase tracking-wider">
+								{blog.data.date.toLocaleDateString("en-US", {
+									year: "numeric",
+									month: "long",
+									day: "numeric",
+								})}
+							</p>
 
-						<h2 class="text-xl font-serif font-bold mb-3 group-hover:underline">
-							{blog.data.title}
-						</h2>
+							<h2 class="text-xl font-serif font-bold mb-3 group-hover:underline">
+								{blog.data.title}
+							</h2>
 
-						<p class="text-sm opacity-70">{blog.data.description}</p>
+							<p class="text-sm opacity-70">
+								{blog.data.description}
+							</p>
 
-						<p class="text-xs opacity-40 mt-3">{blog.data.readTime} min read</p>
+							<p class="text-xs opacity-40 mt-3">
+								{blog.data.readTime} min read
+							</p>
+						</div>
+
+						{blog.data.cover && (
+							<img
+								src={blog.data.cover}
+								alt={blog.data.title}
+								class="hidden md:block w-48 h-32 object-contain border border-border rounded bg-white flex-shrink-0"
+							/>
+						)}
 					</a>
 				))
 			}

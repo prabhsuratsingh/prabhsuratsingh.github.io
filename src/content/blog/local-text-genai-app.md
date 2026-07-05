@@ -4,6 +4,8 @@ description: "Lighweight AI applications that can run locally"
 date: 2025-11-28
 tags: ["AI", "TinyLlama", "FastAPI", "Streamlit"]
 readTime: 15
+cover: "/images/blog/tinyllama.png"
+
 ---
 
 The other day I thought of building a very simple and minimal GenAI chat application, using Python only. Well naturally, **FastAPI** was my premier choice for 
